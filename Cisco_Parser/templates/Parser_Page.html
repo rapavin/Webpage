@@ -12,7 +12,8 @@
 						<form enctype="multipart/form-data" method="post" action="{% url 'upload_read' %}"><br>
 							{% csrf_token %}
 				  			<input type="file" name="running_config"><br><br>
-				  			<input type="submit" value="Download CSV format parsed data">
+				  			<input type="submit" value="Download services .csv format">
+							<input type="submit" value="Download Interfaces . csv format">
 						</form>
 					</div>
 			</div>
