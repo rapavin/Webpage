@@ -41,14 +41,16 @@ def upload_read(request):
         services_templates = cisco_conf_parser.import_textfsm_template(running_configuration_list_read)
         cisco_conf_parser.convert_services_result_csv()
         f = open("services_config.csv", "r")
-        f.encode()
-        print(type(f.read()))
+        encoded_string = f.encode()
+        byte_array = bytearray(encoded_string)
+        print(byte_array)
+        print(type(byte_array))
         print(os.listdir())
         with open(os.path.join(BASE_DIR,'TEMP_FILE_STORAGE/interface_testing.csv'), 'rb') as fq:
             data_bytes = fq.read()
-        print(type(data_bytes))
+        final_bytes = byte_array+data_bytes
         delete_file()
-        response = HttpResponse(data_bytes, content_type='text/html; charset=UTF-8')
+        response = HttpResponse(final_bytes, content_type='text/html; charset=UTF-8')
         response['Content-Disposition'] = 'attachment; filename='+hostname+'.csv'
         return response
         return render(request, 'Parser_Page.html')
