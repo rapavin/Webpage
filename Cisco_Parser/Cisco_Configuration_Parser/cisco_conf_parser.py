@@ -62,7 +62,7 @@ def convert_services_result_csv():
 				writer.writerow(["SERVICES",each_switch_data[0]])
 			else:
 				writer.writerow(["SERVICES",each_switch_data[0]])
-		#print(writer)
+		return "completed"
 		
 def convert_l2_vlan_result_csv():
 	with open('l2_vlans_'+switch_data['cisco_show_run_hostname'][0]+'.csv', 'w') as l2_vlan_csv_file:
