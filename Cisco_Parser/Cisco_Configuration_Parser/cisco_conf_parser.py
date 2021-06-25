@@ -73,8 +73,10 @@ def convert_l2_vlan_result_csv():
 	with open('l2_vlans_'+switch_data['cisco_show_run_hostname'][0]+'.csv', 'w') as l2_vlan_csv_file:
 		writer = csv.writer(l2_vlan_csv_file)
 		writer.writerow(["HOSTNAME",switch_data['cisco_show_run_hostname'][0]])
-
-if __name__ == "__main__":
+def main():
 	Cisco_Configuration_parser.read_input_file()
 	Cisco_Configuration_parser.import_textfsm_template()
-	Cisco_Configuration_parser.convert_services_result_csv()
+	Cisco_Configuration_parser.convert_services_result_csv()	
+if __name__ == "__main__":
+	main()
+
