@@ -39,8 +39,8 @@ def upload_read(request):
         final_config = interface_ciscoconfparse.main(running_configuration_list)
         running_configuration_list_read = convert_each_uploaded_file_readlines_to_string()
         services_templates = cisco_conf_parser.import_textfsm_template(running_configuration_list_read)
-        services_config = cisco_conf_parser.convert_services_result_csv()
-        print(services_config)
+        cisco_conf_parser.convert_services_result_csv()
+        print(os.listdir())
         with open(os.path.join(BASE_DIR,'TEMP_FILE_STORAGE/interface_testing.csv'), 'rb') as fq:
             data_bytes = fq.read() 
         delete_file()
