@@ -23,6 +23,7 @@ def import_textfsm_template(reading_running_conf_read_string):
 
 def convert_services_result_csv():
 	with open('services.csv', 'w') as services_csv_file:
+		print(os.getcwd())
 		writer = csv.writer(services_csv_file)
 		writer.writerow(["HOSTNAME",switch_data['cisco_show_run_hostname'][0]])
 		writer.writerow(["SPANNING TREE MODE",switch_data['cisco_show_run_spanning_tree_mode'][0]])
