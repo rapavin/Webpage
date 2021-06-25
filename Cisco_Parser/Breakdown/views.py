@@ -43,7 +43,8 @@ def upload_read(request):
         cisco_conf_parser.convert_services_result_csv()
 
         f = open('services_config.csv', 'w')
-        f_read = print(f.read())
+        f_read = f.read()
+        print(type(f_read))
         writer = csv.writer(f)
         writer.writerow([f_read])
         writer.writerow(["\n"*10])
