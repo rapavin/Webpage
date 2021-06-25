@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.core.files.storage import FileSystemStorage
 from Interface_Cisco_Configuration_Parser import interface_ciscoconfparse
+from Cisco_Configuration_Parser import cisco_conf_parser
 from pathlib import Path
 import requests
 import os
@@ -29,8 +30,10 @@ def upload_read(request):
         for each_uploaded_file_readlines in uploaded_file_readlines_list:
             running_configuration_list += [each_uploaded_file_readlines.decode().strip("\n").strip("\r")]
         final_config = interface_ciscoconfparse.main(running_configuration_list)
+        services_config = cisco_conf_parser.main()
+        
         with open(os.path.join(BASE_DIR,'TEMP_FILE_STORAGE/interface_testing.csv'), 'rb') as fq:
-            data = fq.read()
+            data = fq.read() 
         delete_file()
         response = HttpResponse(data, content_type='text/html; charset=UTF-8')
         response['Content-Disposition'] = 'attachment; filename='+hostname+'.csv'
