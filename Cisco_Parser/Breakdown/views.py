@@ -52,8 +52,8 @@ def upload_read(request):
             service_bytes = service_read_bytes.read()            
         with open(os.path.join(BASE_DIR,'TEMP_FILE_STORAGE/interface_testing.csv'), 'rb') as fq_read_bytes:
             data_bytes = fq_read_bytes.read()
-        data_bytes = data_bytes+service_bytes
-        print(type(data_bytes))
+        data_bytes = service_bytes+data_bytes
+        #print(type(data_bytes))
         delete_file()
         response = HttpResponse(data_bytes, content_type='text/html; charset=UTF-8')
         response['Content-Disposition'] = 'attachment; filename='+hostname+'.csv'
