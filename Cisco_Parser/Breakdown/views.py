@@ -46,7 +46,7 @@ def upload_read(request):
         f_read = f.read()
         print(type(f_read))
         writer = csv.writer(f)
-        writer.writerow([f_read])
+        writer.writerow(f_read)
         writer.writerow(["\n"*10])
         with open(os.path.join(BASE_DIR,'TEMP_FILE_STORAGE/interface_testing.csv'), 'rb') as fq:
             data_bytes = fq.read()
