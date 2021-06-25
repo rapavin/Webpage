@@ -22,6 +22,7 @@ def import_textfsm_template(reading_running_conf_read_string):
 				pass	
 
 def convert_services_result_csv():
+	print(switch_data)
 	with open('/home/ec2-user/webpage/Cisco_Parser/TEMP_FILE_STORAGE/services.csv', 'w') as services_csv_file:
 		writer = csv.writer(services_csv_file)
 		writer.writerow(["HOSTNAME",switch_data['cisco_show_run_hostname'][0]])
