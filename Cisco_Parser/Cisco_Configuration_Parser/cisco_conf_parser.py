@@ -1,8 +1,6 @@
 import textfsm
 import os
 import csv
-import pandas
-
 
 def import_textfsm_template(reading_running_conf_read_string):
 	global switch_data
