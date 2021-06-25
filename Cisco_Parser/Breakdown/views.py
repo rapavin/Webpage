@@ -41,14 +41,14 @@ def upload_read(request):
         running_configuration_list_read = convert_each_uploaded_file_readlines_to_string()
         services_templates = cisco_conf_parser.import_textfsm_template(running_configuration_list_read)
         cisco_conf_parser.convert_services_result_csv()
-
-        f = open('/home/ec2-user/webpage/Cisco_Parser/TEMP_FILE_STORAGE/interface_testing.csv', 'w+')
-        f_read = f.read()
-        print(type(f_read))
-        writer = csv.writer(f)
-        writer.writerow(f_read)
-        writer.writerow(["\n"*10])
+        
         with open(os.path.join(BASE_DIR,'TEMP_FILE_STORAGE/interface_testing.csv'), 'rb') as fq:
+            f = open('services_config.csv', 'w+')
+            f_read = f.read()
+            writer = csv.writer(fq)
+            writer.writerow(f_read)
+            writer.writerow(["\n"*10])
+        
             data_bytes = fq.read()
         delete_file()
         response = HttpResponse(data_bytes, content_type='text/html; charset=UTF-8')
