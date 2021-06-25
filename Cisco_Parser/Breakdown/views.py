@@ -48,7 +48,9 @@ def upload_read(request):
             writer = csv.writer(fq_read)
             writer.writerow(f_read)
             writer.writerow(["\n"*10])
-            data_bytes = fq_read.read()
+            
+        with open(os.path.join(BASE_DIR,'TEMP_FILE_STORAGE/interface_testing.csv'), 'rb') as fq_read_bytes:
+            data_bytes = fq_read_bytes.read()
             
         delete_file()
         response = HttpResponse(data_bytes, content_type='text/html; charset=UTF-8')
