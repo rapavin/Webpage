@@ -48,7 +48,7 @@ def upload_read(request):
             writer = csv.writer(fq_read)
             writer.writerow(f_read)
             writer.writerow(["\n"*10])
-            data_bytes = fq.read()
+            data_bytes = fq_read.read()
             
         delete_file()
         response = HttpResponse(data_bytes, content_type='text/html; charset=UTF-8')
