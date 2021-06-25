@@ -64,9 +64,6 @@ def convert_services_result_csv():
 				writer.writerow(["SERVICES",each_switch_data[0]])
 			else:
 				writer.writerow(["SERVICES",each_switch_data[0]])
-		df = pandas.read_csv('services_config.csv')
-		print(df)
-		return os.listdir()
 		
 		
 def convert_l2_vlan_result_csv():
