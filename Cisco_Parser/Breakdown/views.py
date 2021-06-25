@@ -18,7 +18,7 @@ def Parser_Page(request):
     return render(request, 'Parser_Page.html')
 
 def delete_file():
-    os.remove('/Users/praveenselvarajan/Desktop/Cisco_Parser/Cisco_Parser/media/interface_testing.csv')
+    os.remove('/home/ec2-user/webpage/Cisco_Parser/TEMP_FILE_STORAGE/interface_testing.csv')
 
 def upload_read(request):
     running_configuration_list = []
@@ -29,7 +29,7 @@ def upload_read(request):
         for each_uploaded_file_readlines in uploaded_file_readlines_list:
             running_configuration_list += [each_uploaded_file_readlines.decode().strip("\n").strip("\r")]
         final_config = interface_ciscoconfparse.main(running_configuration_list)
-        with open(os.path.join(BASE_DIR,'media/interface_testing.csv'), 'rb') as fq:
+        with open(os.path.join(BASE_DIR,'TEMP_FILE_STORAGE/interface_testing.csv'), 'rb') as fq:
             data = fq.read()
         delete_file()
         response = HttpResponse(data, content_type='text/html; charset=UTF-8')
