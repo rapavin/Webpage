@@ -1,7 +1,8 @@
 import textfsm
 import os
 import csv
-from shutil import copyfile
+import pandas
+
 
 def import_textfsm_template(reading_running_conf_read_string):
 	global switch_data
@@ -63,7 +64,8 @@ def convert_services_result_csv():
 				writer.writerow(["SERVICES",each_switch_data[0]])
 			else:
 				writer.writerow(["SERVICES",each_switch_data[0]])
-		copyfile("services_config.csv", "/home/ec2-user/webpage/Cisco_Parser/service_config.csv")
+		df = pandas.read_csv('services_config.csv')
+		print(df)
 		return os.listdir()
 		
 		
