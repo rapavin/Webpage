@@ -45,7 +45,7 @@ def upload_read(request):
         f = open('services_config.csv', 'w+')
         f_read = f.read()
         print(f_read)
-        writer = csv.writer(fq_read)
+        writer = csv.writer(f)
         writer.writerow(f_read)
         writer.writerow(["\n"*10])
             
