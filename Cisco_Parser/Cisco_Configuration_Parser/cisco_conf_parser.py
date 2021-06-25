@@ -37,32 +37,32 @@ def convert_services_result_csv():
 			writer.writerow([""])
 			for each_switch_data in switch_data['cisco_show_run_ntp']:
 				writer.writerow(["NTP",each_switch_data[0]])
-		else:
-			writer.writerow(["NTP",each_switch_data[0]])
+			else:
+				writer.writerow(["NTP",each_switch_data[0]])
 		if len(switch_data['cisco_show_run_aaa'])>1:
 			writer.writerow([""])
 			for each_switch_data in switch_data['cisco_show_run_aaa']:
 				writer.writerow(["AAA",each_switch_data[0]])
-		else:
-			writer.writerow(["AAA",each_switch_data[0]])
+			else:
+				writer.writerow(["AAA",each_switch_data[0]])
 		if len(switch_data['cisco_show_run_logging'])>1:
 			writer.writerow([""])
 			for each_switch_data in switch_data['cisco_show_run_logging']:
 				writer.writerow(["LOGGING",each_switch_data[0]])
-		else:
-			writer.writerow(["LOGGING",each_switch_data[0]])
+			else:
+				writer.writerow(["LOGGING",each_switch_data[0]])
 		if len(switch_data['cisco_show_run_clock'])>1:
 			writer.writerow([""])
 			for each_switch_data in switch_data['cisco_show_run_clock']:
 				writer.writerow(["CLOCK INFORMATION",each_switch_data[0]])
-		else:
-			writer.writerow(["CLOCK INFORMATION",each_switch_data[0]])
+			else:
+				writer.writerow(["CLOCK INFORMATION",each_switch_data[0]])
 		if len(switch_data['cisco_show_run_service'])>1:
 			writer.writerow([""])
 			for each_switch_data in switch_data['cisco_show_run_service']:
 				writer.writerow(["SERVICES",each_switch_data[0]])
-		else:
-			writer.writerow(["SERVICES",each_switch_data[0]])
+			else:
+				writer.writerow(["SERVICES",each_switch_data[0]])
 
 def convert_l2_vlan_result_csv():
 	with open('l2_vlans_'+switch_data['cisco_show_run_hostname'][0]+'.csv', 'w') as l2_vlan_csv_file:
