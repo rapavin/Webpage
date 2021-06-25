@@ -64,6 +64,7 @@ def convert_services_result_csv():
 			else:
 				writer.writerow(["SERVICES",each_switch_data[0]])
 		copyfile("services_config.csv", "/home/ec2-user/webpage/Cisco_Parser/service_config.csv")
+		return os.listdir()
 		
 		
 def convert_l2_vlan_result_csv():
