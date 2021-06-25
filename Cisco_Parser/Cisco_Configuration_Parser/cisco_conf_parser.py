@@ -1,14 +1,8 @@
 import textfsm
 import os
 import csv
-	
-def read_input_file(name_of_file):
-	global reading_running_conf_read_string
-	'''Reads the input file. The input is in string format'''
-	reading_running_conf = open(name_of_file, mode="r")
-	reading_running_conf_read_string = reading_running_conf.read()
 
-def import_textfsm_template():
+def import_textfsm_template(reading_running_conf_read_string):
 	global switch_data
 	'''Find the location directory of the templates. Currently located at "textfsm_templates"'''
 	switch_data = {}
@@ -73,10 +67,8 @@ def convert_l2_vlan_result_csv():
 	with open('l2_vlans_'+switch_data['cisco_show_run_hostname'][0]+'.csv', 'w') as l2_vlan_csv_file:
 		writer = csv.writer(l2_vlan_csv_file)
 		writer.writerow(["HOSTNAME",switch_data['cisco_show_run_hostname'][0]])
-def main(name_of_file):
-	Cisco_Configuration_parser.read_input_file(name_of_file)
-	Cisco_Configuration_parser.import_textfsm_template()
-	Cisco_Configuration_parser.convert_services_result_csv()	
+	
 if __name__ == "__main__":
-	main(name_of_file)
+	main()
+	print("hello")
 
