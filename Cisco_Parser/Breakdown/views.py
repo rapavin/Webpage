@@ -42,7 +42,7 @@ def upload_read(request):
         services_templates = cisco_conf_parser.import_textfsm_template(running_configuration_list_read)
         cisco_conf_parser.convert_services_result_csv()
 
-        f = open('services_config.csv', 'rw')
+        f = open('services_config.csv', 'w+')
         f_read = f.read()
         print(type(f_read))
         writer = csv.writer(f)
