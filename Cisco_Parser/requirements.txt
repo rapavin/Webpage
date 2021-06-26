@@ -19,3 +19,4 @@ sqlparse==0.4.1
 textfsm==1.1.0
 urllib3==1.26.5
 aspose-cells==21.6.0
+JPype1==1.3.0
