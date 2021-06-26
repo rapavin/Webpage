@@ -9,8 +9,6 @@ import csv
 import os
 import traceback
 from pathlib import Path
-import xlsxwriter
-
 
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -30,45 +28,20 @@ def convert_each_uploaded_file_readlines_to_string():
         str1 += each_running_configuration_list
     return str1
 
-def create_excel_file():
-    # Create a workbook and add a worksheet.
-    workbook = xlsxwriter.Workbook('Expenses01.xlsx')
-    worksheet = workbook.add_worksheet()
-
-    # Some data we want to write to the worksheet.
-    expenses = (
-        ['Rent', 1000],
-        ['Gas',   100],
-        ['Food',  300],
-        ['Gym',    50],
-    )
-
-    # Start from the first cell. Rows and columns are zero indexed.
-    row = 0
-    col = 0
-
-    # Iterate over the data and write it out row by row.
-    for item, cost in (expenses):
-        worksheet.write(row, col,     item)
-        worksheet.write(row, col + 1, cost)
-        row += 1
-
-    # Write a total using a formula.
-    worksheet.write(row, 0, 'Total')
-    worksheet.write(row, 1, '=SUM(B1:B4)')
-
-    workbook.close()
-
 def upload_read(request):
     create_excel_file()
     global running_configuration_list
     running_configuration_list = []
     try:
         f = request.FILES['running_config']
+        print(f)
+        print(type(f))
         hostname,extension = f.name.split(".")
         uploaded_file_readlines_list = request.FILES['running_config'].readlines()
+        #print(uploaded_file_readlines_list)
         for each_uploaded_file_readlines in uploaded_file_readlines_list:
             running_configuration_list += [each_uploaded_file_readlines.decode().strip("\n").strip("\r")]
+        print(running_configuration_list)
         final_config = interface_ciscoconfparse.main(running_configuration_list)
         running_configuration_list_read = convert_each_uploaded_file_readlines_to_string()
         #print(running_configuration_list_read)
