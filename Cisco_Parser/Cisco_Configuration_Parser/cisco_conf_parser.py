@@ -3,7 +3,6 @@ import os
 import csv
 
 def import_textfsm_template(reading_running_conf_read_string):
-	global switch_data
 	'''Find the location directory of the templates. Currently located at "textfsm_templates"'''
 	switch_data = {}
 	textfsm_templates_list = os.listdir("/home/ec2-user/webpage/Cisco_Parser/Cisco_Configuration_Parser/textfsm_templates")
@@ -19,7 +18,8 @@ def import_textfsm_template(reading_running_conf_read_string):
 				elif len(data)>1:
 					switch_data[each_textfsm_templates_list[0:-4]] = data
 			except:
-				pass	
+				pass
+	return switch_data
 
 def convert_services_result_csv():
 	with open('services_config.csv', 'w') as services_csv_file:
