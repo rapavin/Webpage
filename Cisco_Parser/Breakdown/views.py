@@ -41,7 +41,7 @@ def upload_read(request):
         running_configuration_list_read = convert_each_uploaded_file_readlines_to_string()
         #print(running_configuration_list_read)
         #print(type(running_configuration_list_read))
-        #services_templates = cisco_conf_parser.import_textfsm_template(running_configuration_list_read)
+        services_templates = cisco_conf_parser.import_textfsm_template(running_configuration_list_read)
         #print(type(services_templates))
         #cisco_conf_parser.convert_services_result_csv()
         
