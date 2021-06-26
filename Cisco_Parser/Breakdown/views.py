@@ -36,6 +36,8 @@ def create_excel_file():
     # The workbook object is then used to add new 
     # worksheet via the add_worksheet() method.
     worksheet = workbook.add_worksheet()
+    print(os.getcwd())
+    print(os.listdir())
 
     # Use the worksheet object to write
     # data via the write() method.
