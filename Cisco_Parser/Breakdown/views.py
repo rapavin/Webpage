@@ -29,7 +29,6 @@ def convert_each_uploaded_file_readlines_to_string():
     return str1
 
 def upload_read(request):
-    create_excel_file()
     global running_configuration_list
     running_configuration_list = []
     try:
