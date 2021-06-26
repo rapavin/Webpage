@@ -22,9 +22,9 @@ def Parser_Page(request):
 def delete_file():
     os.remove('/home/ec2-user/webpage/Cisco_Parser/TEMP_FILE_STORAGE/interface_testing.csv')
 
-def convert_each_uploaded_file_readlines_to_string():
+def convert_each_uploaded_file_readlines_to_string(list_variable):
     str1 = "" 
-    for each_running_configuration_list in running_configuration_list: 
+    for each_running_configuration_list in list_variable: 
         str1 += each_running_configuration_list
     return str1
 
@@ -40,9 +40,9 @@ def upload_read(request):
         #print(uploaded_file_readlines_list)
         for each_uploaded_file_readlines in uploaded_file_readlines_list:
             running_configuration_list += [each_uploaded_file_readlines.decode().strip("\n").strip("\r")]
-        print(running_configuration_list)
         final_config = interface_ciscoconfparse.main(running_configuration_list)
-        running_configuration_list_read = convert_each_uploaded_file_readlines_to_string()
+        running_configuration_list_read = convert_each_uploaded_file_readlines_to_string(running_configuration_list)
+        print(running_configuration_list_read)
         #print(running_configuration_list_read)
         #print(type(running_configuration_list_read))
         services_templates = cisco_conf_parser.import_textfsm_template(running_configuration_list_read)
