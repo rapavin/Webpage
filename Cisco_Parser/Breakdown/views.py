@@ -73,5 +73,4 @@ def upload_read(request):
         return response
         return render(request, 'Parser_Page.html')
     except Exception:
-        traceback.print_exc()
         return render(request, 'Parser_Page.html')
