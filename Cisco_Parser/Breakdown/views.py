@@ -48,6 +48,11 @@ def upload_read(request):
         writer = csv.writer(f)
         writer.writerow(f_read)
         writer.writerow(["\n"*10])
+
+        f1 = open('services_config.csv', 'r')
+        f1_read = f1.read()
+        print(f1_read)
+        print("done")
         with open(os.path.join(BASE_DIR,'services_config.csv'), 'rb') as service_read_bytes:
             service_bytes = service_read_bytes.read()
         print(service_bytes)
