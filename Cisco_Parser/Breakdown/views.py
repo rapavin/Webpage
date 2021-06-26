@@ -49,10 +49,13 @@ def upload_read(request):
         writer.writerow(f_read)
         writer.writerow(["\n"*10])
         with open(os.path.join(BASE_DIR,'services_config.csv'), 'rb') as service_read_bytes:
-            service_bytes = service_read_bytes.read()            
+            service_bytes = service_read_bytes.read()
+        print(service_bytes)
+        print(type(service_bytes))
         with open(os.path.join(BASE_DIR,'TEMP_FILE_STORAGE/interface_testing.csv'), 'rb') as fq_read_bytes:
             data_bytes = fq_read_bytes.read()
-        data_bytes = service_bytes+data_bytes
+        print(data_bytes)
+        print(type(data_bytes))
         #print(type(data_bytes))
         delete_file()
         response = HttpResponse(data_bytes, content_type='text/html; charset=UTF-8')
