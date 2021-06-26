@@ -8,8 +8,10 @@ import requests
 import csv
 import os
 import traceback
-from openpyxl import Workbook
 from pathlib import Path
+import xlsxwriter
+
+
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -27,8 +29,12 @@ def convert_each_uploaded_file_readlines_to_string():
     for each_running_configuration_list in running_configuration_list: 
         str1 += each_running_configuration_list
     return str1
-            
+
+def create_excel_file():
+    workbook = xlsxwriter.Workbook('hello.xlsx')
+    
 def upload_read(request):
+    create_excel_file()
     global running_configuration_list
     running_configuration_list = []
     try:
