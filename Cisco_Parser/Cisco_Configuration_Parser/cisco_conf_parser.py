@@ -43,25 +43,28 @@ def cisco_service_parser(reading_running_conf_read_string):
 			for each_switch_data in switch_data['cisco_show_run_aaa']:
 				writer.writerow(["AAA",each_switch_data[0]])
 			else:
-				writer.writerow(["AAA",each_switch_data[0]])
+				pass
+			
 		if len(switch_data['cisco_show_run_logging'])>1:
 			writer.writerow([""])
 			for each_switch_data in switch_data['cisco_show_run_logging']:
 				writer.writerow(["LOGGING",each_switch_data[0]])
 			else:
-				writer.writerow(["LOGGING",each_switch_data[0]])
+				pass
+			
 		if len(switch_data['cisco_show_run_clock'])>1:
 			writer.writerow([""])
 			for each_switch_data in switch_data['cisco_show_run_clock']:
 				writer.writerow(["CLOCK INFORMATION",each_switch_data[0]])
 			else:
-				writer.writerow(["CLOCK INFORMATION",each_switch_data[0]])
+				pass
+			
 		if len(switch_data['cisco_show_run_service'])>1:
 			writer.writerow([""])
 			for each_switch_data in switch_data['cisco_show_run_service']:
 				writer.writerow(["SERVICES",each_switch_data[0]])
 			else:
-				writer.writerow(["SERVICES",each_switch_data[0]])
+				pass
 	
 if __name__ == "__main__":
 	main()
