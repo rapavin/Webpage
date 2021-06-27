@@ -25,7 +25,8 @@ def delete_file():
 def convert_each_uploaded_file_readlines_to_string(list_variable):
     str1 = "" 
     for each_running_configuration_list in list_variable: 
-        str1 += each_running_configuration_list+"\n"
+        str1 += each_running_configuration_list
+        str1 += "\n"
     return str1
 
 def upload_read(request):
