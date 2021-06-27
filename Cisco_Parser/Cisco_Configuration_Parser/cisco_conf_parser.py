@@ -10,10 +10,8 @@ def import_textfsm_template(reading_running_conf_read_string):
 	for each_textfsm_templates_list in textfsm_templates_list:
 		with open("/home/ec2-user/webpage/Cisco_Parser/Cisco_Configuration_Parser/textfsm_templates/"+each_textfsm_templates_list) as all_textfsm_templates:
 			regex_table_fsm_data = textfsm.TextFSM(all_textfsm_templates)
-			print("hellow worl")
-			print(regex_table_fsm_data)
-			print(reading_running_conf_read_string)
 			data = regex_table_fsm_data.ParseText(reading_running_conf_read_string)
+			print(data)
 			try:
 				if len(data)==1:
 					switch_data[each_textfsm_templates_list[0:-4]] = data[0]
