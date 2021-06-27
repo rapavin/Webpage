@@ -42,32 +42,14 @@ def upload_read(request):
             running_configuration_list += [each_uploaded_file_readlines.decode().strip("\n").strip("\r")]
         final_config = interface_ciscoconfparse.main(running_configuration_list)
         running_configuration_list_read = convert_each_uploaded_file_readlines_to_string(running_configuration_list)
-        print(running_configuration_list_read)
-        #print(running_configuration_list_read)
-        #print(type(running_configuration_list_read))
         services_templates = cisco_conf_parser.import_textfsm_template(running_configuration_list_read)
-        #print(type(services_templates))
-        #cisco_conf_parser.convert_services_result_csv()
-        
-        #f = open('services_config.csv', 'w+')
-        #f_read = f.read()
-        #print(f_read)
-        #writer = csv.writer(f)
-        #writer.writerow(f_read)
-        #writer.writerow(["\n"*10])
 
-        #with open(os.path.join(BASE_DIR,'services_config.csv'), 'rb') as service_read_bytes:
-        #    service_bytes = service_read_bytes.read()
-        #print(service_bytes)
-        #print(type(service_bytes))
         with open(os.path.join(BASE_DIR,'TEMP_FILE_STORAGE/interface_testing.csv'), 'rb') as fq_read_bytes:
             data_bytes = fq_read_bytes.read()
-        #print(data_bytes)
-        #print(type(data_bytes))
-        #print(type(data_bytes))
-        delete_file()
+        
         response = HttpResponse(data_bytes, content_type='text/html; charset=UTF-8')
         response['Content-Disposition'] = 'attachment; filename='+hostname+'.csv'
+        delete_file()
         return response
         return render(request, 'Parser_Page.html')
     except Exception:
