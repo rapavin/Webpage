@@ -7,11 +7,12 @@ def import_textfsm_template(reading_running_conf_read_string):
 	'''Find the location directory of the templates. Currently located at "textfsm_templates"'''
 	switch_data = {}
 	textfsm_templates_list = os.listdir("/home/ec2-user/webpage/Cisco_Parser/Cisco_Configuration_Parser/textfsm_templates")
+
 	for each_textfsm_templates_list in textfsm_templates_list:
 		with open("/home/ec2-user/webpage/Cisco_Parser/Cisco_Configuration_Parser/textfsm_templates/"+each_textfsm_templates_list) as all_textfsm_templates:
 			regex_table_fsm_data = textfsm.TextFSM(all_textfsm_templates)
 			data = regex_table_fsm_data.ParseText(reading_running_conf_read_string)
-			print(reading_running_conf_read_string)
+
 			print(data)
 			try:
 				if len(data)==1:
