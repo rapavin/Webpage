@@ -63,12 +63,6 @@ def import_textfsm_template(reading_running_conf_read_string):
 				writer.writerow(["SERVICES",each_switch_data[0]])
 			else:
 				writer.writerow(["SERVICES",each_switch_data[0]])
-		
-		
-def convert_l2_vlan_result_csv():
-	with open('l2_vlans_'+switch_data['cisco_show_run_hostname'][0]+'.csv', 'w') as l2_vlan_csv_file:
-		writer = csv.writer(l2_vlan_csv_file)
-		writer.writerow(["HOSTNAME",switch_data['cisco_show_run_hostname'][0]])
 	
 if __name__ == "__main__":
 	main()
