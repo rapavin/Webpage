@@ -3,6 +3,7 @@ import os
 import csv
 
 def import_textfsm_template(reading_running_conf_read_string):
+	global switch_data
 	'''Find the location directory of the templates. Currently located at "textfsm_templates"'''
 	switch_data = {}
 	textfsm_templates_list = os.listdir("/home/ec2-user/webpage/Cisco_Parser/Cisco_Configuration_Parser/textfsm_templates")
