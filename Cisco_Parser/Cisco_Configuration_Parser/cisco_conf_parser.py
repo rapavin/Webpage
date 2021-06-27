@@ -12,8 +12,6 @@ def cisco_service_parser(reading_running_conf_read_string):
 		with open("/home/ec2-user/webpage/Cisco_Parser/Cisco_Configuration_Parser/textfsm_templates/"+each_textfsm_templates_list) as all_textfsm_templates:
 			regex_table_fsm_data = textfsm.TextFSM(all_textfsm_templates)
 			data = regex_table_fsm_data.ParseText(reading_running_conf_read_string)
-
-			print(data)
 			try:
 				if len(data)==1:
 					switch_data[each_textfsm_templates_list[0:-4]] = data[0]
@@ -38,7 +36,7 @@ def cisco_service_parser(reading_running_conf_read_string):
 			for each_switch_data in switch_data['cisco_show_run_ntp']:
 				writer.writerow(["NTP",each_switch_data[0]])
 			else:
-				writer.writerow(["NTP",each_switch_data[0]])
+				writer.writerow(["testing"])
 		if len(switch_data['cisco_show_run_aaa'])>1:
 			writer.writerow([""])
 			for each_switch_data in switch_data['cisco_show_run_aaa']:
