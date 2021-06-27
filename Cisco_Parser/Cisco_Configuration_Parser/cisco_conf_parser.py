@@ -2,7 +2,7 @@ import textfsm
 import os
 import csv
 
-def import_textfsm_template(reading_running_conf_read_string):
+def cisco_service_parser(reading_running_conf_read_string):
 	global switch_data
 	'''Find the location directory of the templates. Currently located at "textfsm_templates"'''
 	switch_data = {}
