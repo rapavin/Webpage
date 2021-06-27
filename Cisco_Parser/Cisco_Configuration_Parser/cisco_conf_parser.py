@@ -27,7 +27,7 @@ def cisco_service_parser(reading_running_conf_read_string):
 		writer = csv.writer(services_csv_file)
 		writer.writerow(["HOSTNAME",switch_data['cisco_show_run_hostname'][0]])
 		writer.writerow(["SPANNING TREE MODE",switch_data['cisco_show_run_spanning_tree_mode'][0]])
-		writer.writerow(["VERSION",switch_data['cisco_show_run_version'][0]])
+		#writer.writerow(["VERSION",switch_data['cisco_show_run_version'][0]])
 		writer.writerow(["BOOT SYSTEM",switch_data['cisco_show_run_boot_system'][0]])
 		writer.writerow(["ENABLE",switch_data['cisco_show_run_enable_secret'][0]])
 		writer.writerow(["VTP MODE",switch_data['cisco_show_run_vtp_mode'][0]])
