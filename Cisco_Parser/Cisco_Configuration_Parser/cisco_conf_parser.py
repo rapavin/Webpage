@@ -12,6 +12,7 @@ def import_textfsm_template(reading_running_conf_read_string):
 			regex_table_fsm_data = textfsm.TextFSM(all_textfsm_templates)
 			data = regex_table_fsm_data.ParseText(reading_running_conf_read_string)
 			print(reading_running_conf_read_string)
+			print(data)
 			try:
 				if len(data)==1:
 					switch_data[each_textfsm_templates_list[0:-4]] = data[0]
