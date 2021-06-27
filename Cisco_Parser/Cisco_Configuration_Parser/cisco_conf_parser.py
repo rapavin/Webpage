@@ -11,7 +11,7 @@ def import_textfsm_template(reading_running_conf_read_string):
 		with open("/home/ec2-user/webpage/Cisco_Parser/Cisco_Configuration_Parser/textfsm_templates/"+each_textfsm_templates_list) as all_textfsm_templates:
 			regex_table_fsm_data = textfsm.TextFSM(all_textfsm_templates)
 			print("hellow worl")
-			print(regex_table)
+			print(regex_table_fsm_data)
 			print(reading_running_conf_read_string)
 			data = regex_table_fsm_data.ParseText(reading_running_conf_read_string)
 			try:
