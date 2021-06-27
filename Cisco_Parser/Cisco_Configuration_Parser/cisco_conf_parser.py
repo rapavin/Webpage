@@ -36,7 +36,8 @@ def cisco_service_parser(reading_running_conf_read_string):
 			for each_switch_data in switch_data['cisco_show_run_ntp']:
 				writer.writerow(["NTP",each_switch_data[0]])
 			else:
-				writer.writerow(["testing"])
+				pass
+			
 		if len(switch_data['cisco_show_run_aaa'])>1:
 			writer.writerow([""])
 			for each_switch_data in switch_data['cisco_show_run_aaa']:
