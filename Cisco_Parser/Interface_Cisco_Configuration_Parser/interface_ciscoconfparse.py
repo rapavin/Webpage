@@ -161,7 +161,7 @@ def main(file_name):
         else:
             empty_dic[each_interface].append("N/A")
 
-    with open('/home/ec2-user/webpage/Cisco_Parser/TEMP_FILE_STORAGE/interface_testing.csv', 'w+', newline='') as file:
+    with open('/home/ec2-user/webpage/Cisco_Parser/TEMP_FILE_STORAGE/interface_testing.csv', 'a', newline='') as file:
         writer = csv.writer(file)
         writer.writerow(["INTERFACE", "DESCRIPTION", "IP ADDRESS", "SWITCHPORT MODE", "SWITCHPORT ACCESS VLAN", "SWITCHPORT VOICE VLAN", "SWITCHPORT TRUNK NATIVE","SWITCHPORT TRUNK ALLOWED VLAN", "IP HELPER-ADDRESS", "SWITCHPORT NONEGOTIATE", "LOGGING", "UDLD PORT AGGRESSIVE", "IP DHCP SNOOPING", "SPANNING-TREE LINK TYPE","SWITCHPORT PORT-SECURITY", "DEVICE TRACKICKING", "SRR-QUEUE", "SPANNING-TREE PORTFAST", "SPANNING-TREE BPDUGUARD", "SPANNING-TREE GUARD ROOT", "SERVICE POLICY", "PIM MODE", "REDIRECTS", "UNREACHABLES", "ACCESS-GROUP", "SHUTDOWN"])
         for key, items in empty_dic.items():
