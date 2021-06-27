@@ -10,8 +10,10 @@ def import_textfsm_template(reading_running_conf_read_string):
 	for each_textfsm_templates_list in textfsm_templates_list:
 		with open("/home/ec2-user/webpage/Cisco_Parser/Cisco_Configuration_Parser/textfsm_templates/"+each_textfsm_templates_list) as all_textfsm_templates:
 			regex_table_fsm_data = textfsm.TextFSM(all_textfsm_templates)
+			print("hellow worl")
+			print(regex_table)
+			print(reading_running_conf_read_string)
 			data = regex_table_fsm_data.ParseText(reading_running_conf_read_string)
-			print(data)
 			try:
 				if len(data)==1:
 					switch_data[each_textfsm_templates_list[0:-4]] = data[0]
@@ -21,10 +23,7 @@ def import_textfsm_template(reading_running_conf_read_string):
 					switch_data[each_textfsm_templates_list[0:-4]] = data
 			except:
 				pass
-	return switch_data
-
-def convert_services_result_csv():
-	with open('services_config.csv', 'w') as services_csv_file:
+	with open('/home/ec2-user/webpage/Cisco_Parser/TEMP_FILE_STORAGE/interface_testing.csv', 'w+', newline='') as services_csv_file:
 		writer = csv.writer(services_csv_file)
 		writer.writerow(["HOSTNAME",switch_data['cisco_show_run_hostname'][0]])
 		writer.writerow(["SPANNING TREE MODE",switch_data['cisco_show_run_spanning_tree_mode'][0]])
