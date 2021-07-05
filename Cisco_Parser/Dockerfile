@@ -2,12 +2,12 @@ FROM python:3.8.0-buster
 
 ENV PYTHONUNBUFFERED 1
 
-WORKDIR /home/ec2-user/webpage/Cisco_Parser
+WORKDIR /home/ec2-user/cisco-app
 
-ADD . /home/ec2-user/webpage/Cisco_Parser
+ADD . /home/ec2-user/cisco-app
 
-COPY ./requirements.txt /home/ec2-user/webpage/Cisco_Parser/requirements.txt
+COPY ./requirements.txt /home/ec2-user/cisco-app/requirements.txt
 
 RUN pip install -r requirements.txt
 
-COPY . /home/ec2-user/webpage/Cisco_Parser
+COPY . /home/ec2-user/cisco-app
