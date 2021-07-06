@@ -67,7 +67,7 @@ def main(file_name):
 
         if any("logging" in each_interface_children_commands for each_interface_children_commands in interface_children_commands):
             logging_event_trunk_status_children = list(each_interface_children_commands for each_interface_children_commands in interface_children_commands if "logging" in each_interface_children_commands)
-            empty_dic[each_interface].append(str([each_logging_event_trunk_status_children for each_logging_event_trunk_status_children in logging_event_trunk_status_children]).replace("[","").replace("]","").replace("'",""))
+            empty_dic[each_interface].append(str([each_logging_event_trunk_status_children for each_logging_event_trunk_status_children in logging_event_trunk_status_children]).replace("[","").replace("]","").replace("'","")[1:])
         else:
             empty_dic[each_interface].append("N/A")
 
