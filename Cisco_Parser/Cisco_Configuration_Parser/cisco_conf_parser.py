@@ -65,7 +65,14 @@ def cisco_service_parser(reading_running_conf_read_string):
 				writer.writerow(["SERVICES",each_switch_data[0]])
 			else:
 				pass
-	
+
+		if len(switch_data['cisco_show_run_snmp'])>1:
+			writer.writerow([""])
+			for each_switch_data in switch_data['cisco_show_run_snmp']:
+				writer.writerow(["SNMP",each_switch_data[0]])
+			else:
+				pass
+			
 if __name__ == "__main__":
 	main()
 
