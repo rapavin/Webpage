@@ -2,24 +2,22 @@
 {% block content %}
 {% load static %}
 <!DOCTYPE html>
-<div class="top-left">
+
+<div class="time_container">
 <body>
-      	<section id="header">
-                <div class="container">
-                        <div class="upload">
-                                        <div class="time">
-                                                  <h1 id="time"></h1>
-                                                  <script>
-                                                        var myVar = setInterval(myTimer, 100);
-                                                                function myTimer() {
-                                                                                var d = new Date();
-                                                                                var t = d.toTimeString();
-                                                                                document.getElementById("time").innerHTML = t;
-                                                                                   }
-                                                  </script>
-                                        </div>
-                        </div>
-        </section>
+      <section id="header">
+            <div class="time">
+                  <h1 id="time_cst" style="color:white;font-size: 1em;"></h1>
+                        <script>
+                              var refresh_time = setInterval(CST_time, 100);
+                              function CST_time() {
+                              var date = new Date();
+                              var cst = date.toTimeString();
+                              document.getElementById("time_cst").innerHTML = cst;
+                              }
+                        </script>
+            </div>
+      </section>
 </body>
 </div>
 {% endblock %}
