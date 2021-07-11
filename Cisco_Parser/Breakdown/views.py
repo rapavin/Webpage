@@ -19,6 +19,9 @@ def Home_Page(request):
 def Parser_Page(request):
     return render(request, 'Parser_Page.html')
 
+def Network_Page(request):
+    return render(request, 'Network_Page.html')
+
 def delete_file():
     os.remove('/home/ec2-user/webpage/Cisco_Parser/TEMP_FILE_STORAGE/interface_testing.csv')
 
