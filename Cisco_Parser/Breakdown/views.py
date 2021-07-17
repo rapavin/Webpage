@@ -49,7 +49,7 @@ def upload_read(request):
         cisco_conf_parser.cisco_service_parser(running_configuration_list_read)
         final_config = interface_ciscoconfparse.main(running_configuration_list)
         
-        data_frame = pd.read_csv("interface_testing.csv")
+        data_frame = pd.read_csv("/home/ec2-user/webpage/Cisco_Parser/TEMP_FILE_STORAGE/interface_testing.csv")
         print(data_frame.head())
         
         with open(os.path.join(BASE_DIR,'TEMP_FILE_STORAGE/interface_testing.csv'), 'rb') as fq_read_bytes:
