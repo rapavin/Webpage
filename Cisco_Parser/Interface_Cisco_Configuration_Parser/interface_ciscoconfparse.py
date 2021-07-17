@@ -1,4 +1,5 @@
 from ciscoconfparse import CiscoConfParse
+import pandas
 import csv
 from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -167,7 +168,10 @@ def main(file_name):
         writer.writerow(["INTERFACE", "DESCRIPTION", "IP ADDRESS", "SWITCHPORT MODE", "SWITCHPORT ACCESS VLAN", "SWITCHPORT VOICE VLAN", "SWITCHPORT TRUNK NATIVE","SWITCHPORT TRUNK ALLOWED VLAN", "IP HELPER-ADDRESS", "SWITCHPORT NONEGOTIATE", "LOGGING", "UDLD PORT AGGRESSIVE", "IP DHCP SNOOPING", "SPANNING-TREE LINK TYPE","SWITCHPORT PORT-SECURITY", "DEVICE TRACKICKING", "SRR-QUEUE", "SPANNING-TREE PORTFAST", "SPANNING-TREE BPDUGUARD", "SPANNING-TREE GUARD ROOT", "SERVICE POLICY", "PIM MODE", "REDIRECTS", "UNREACHABLES", "ACCESS-GROUP", "SHUTDOWN"])
         for key, items in empty_dic.items():
             writer.writerow([key,items[0],items[1],items[2],items[3],items[4],items[5],items[6],items[7],items[8],items[9],items[10],items[11],items[12],items[13],items[14],items[15],items[16],items[17],items[18],items[19],items[20],items[21],items[22],items[23],items[24]])
-
+    
+    reading_csv_pandas = pandas.read_csv("interface_testing.csv")
+    print(reading_csv_pandas.head())
+    
 if __name__ == "__main__":
     main()
 
