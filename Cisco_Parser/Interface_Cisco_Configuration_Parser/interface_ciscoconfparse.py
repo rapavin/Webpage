@@ -11,8 +11,7 @@ def main(file_name):
     for each_interface in empty_dic:
         interface_children_commands = file_to_parse.find_all_children(each_interface+"$")
 
-        
-        if any("description" in each_interface_children_commands for each_interface_children_commands in interface_children_commands) and request.form.get('Description'):
+        if any("description" in each_interface_children_commands for each_interface_children_commands in interface_children_commands):
             description_children = list(each_interface_children_commands for each_interface_children_commands in interface_children_commands if "description" in each_interface_children_commands)
             empty_dic[each_interface].append(description_children[0][1:])
         else:
