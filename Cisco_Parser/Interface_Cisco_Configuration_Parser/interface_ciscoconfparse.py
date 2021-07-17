@@ -174,7 +174,7 @@ def main(file_name):
     #
     os.chdir(r"/home/ec2-user/webpage/Cisco_Parser/TEMP_FILE_STORAGE")
     data = pd.read_csv('interface_testing.csv')
-    print(data)
+    print("working")
     #with open("/home/ec2-user/webpage/Cisco_Parser/TEMP_FILE_STORAGE/interface_testing.csv", "r") as source:
         #reader = csv.reader(source)
     #print(reader)
