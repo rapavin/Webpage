@@ -173,7 +173,7 @@ def main(file_name):
 
     with open('/home/ec2-user/webpage/Cisco_Parser/TEMP_FILE_STORAGE/interface_testing.csv', 'a', newline='') as file:
         reader = csv.reader(file)
-        print(reader)
+        print(reader.read())
     #os.chdir(r"/home/ec2-user/webpage/Cisco_Parser/TEMP_FILE_STORAGE")
     #with open("/home/ec2-user/webpage/Cisco_Parser/TEMP_FILE_STORAGE/interface_testing.csv", "r") as source:
         #reader = csv.reader(source)
