@@ -171,11 +171,9 @@ def main(file_name):
         for key, items in empty_dic.items():
             writer.writerow([key,items[0],items[1],items[2],items[3],items[4],items[5],items[6],items[7],items[8],items[9],items[10],items[11],items[12],items[13],items[14],items[15],items[16],items[17],items[18],items[19],items[20],items[21],items[22],items[23],items[24]])
     
-    #
-    #os.chdir(r"/home/ec2-user/webpage/Cisco_Parser/TEMP_FILE_STORAGE")
     data = pd.read_csv('/home/ec2-user/webpage/Cisco_Parser/TEMP_FILE_STORAGE/interface_testing.csv')
-    print("working")
-    print(data)
+    print(len(data))
+    #os.chdir(r"/home/ec2-user/webpage/Cisco_Parser/TEMP_FILE_STORAGE")
     #with open("/home/ec2-user/webpage/Cisco_Parser/TEMP_FILE_STORAGE/interface_testing.csv", "r") as source:
         #reader = csv.reader(source)
     #print(reader)
