@@ -37,7 +37,10 @@ def upload_read(request):
     running_configuration_list = []
     try:
         f = request.FILES['running_config']
-        hostname,extension = f.name.split(".")
+        if "." in f.name[-4]:
+            hostname = f.name[0:-4]
+        elif "." in f.name[-5]:
+            hostname = f.name[0:-5]
         uploaded_file_readlines_list = request.FILES['running_config'].readlines()
         #print(uploaded_file_readlines_list)
         for each_uploaded_file_readlines in uploaded_file_readlines_list:
