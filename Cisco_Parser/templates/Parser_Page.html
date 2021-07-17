@@ -81,7 +81,10 @@
 						<form enctype="multipart/form-data" method="post" action="{% url 'upload_read' %}"><br>
 							{% csrf_token %}
 				  			<input type="file" name="running_config"><br><br>
-						<label class="container_checkbox">Interface
+							<input type="submit" value="Download configuration .csv format">
+						</form>
+					</div>
+				<label class="container_checkbox">Interface
   						<input type="checkbox" checked="checked">
   						<span class="checkmark"></span>
 						</label>
@@ -97,9 +100,6 @@
   						<input type="checkbox" checked="checked">
   						<span class="checkmark"></span>
 						</label>
-							<input type="submit" value="Download configuration .csv format">
-						</form>
-					</div>
 			</div>
 	</section>
 </body>
