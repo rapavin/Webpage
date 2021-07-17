@@ -3,8 +3,8 @@
 {% load static %}
 <!DOCTYPE html>
 <style>
-/* The container */
-.container {
+/* The container_checkbox */
+.container_checkbox {
   display: block;
   position: relative;
   padding-left: 30px;
@@ -18,7 +18,7 @@
 }
 
 /* Hide the browser's default checkbox */
-.container input {
+.container_checkbox input {
   position: absolute;
   opacity: 0;
   cursor: pointer;
@@ -37,12 +37,12 @@
 }
 
 /* On mouse-over, add a grey background color */
-.container:hover input ~ .checkmark {
+.container_checkbox:hover input ~ .checkmark {
   background-color: #ccc;
 }
 
 /* When the checkbox is checked, add a blue background */
-.container input:checked ~ .checkmark {
+.container_checkbox input:checked ~ .checkmark {
   background-color: #2196F3;
 }
 
@@ -54,17 +54,17 @@
 }
 
 /* Show the checkmark when checked */
-.container input:checked ~ .checkmark:after {
+.container_checkbox input:checked ~ .checkmark:after {
   display: block;
 }
 
 /* Style the checkmark/indicator */
-.container .checkmark:after {
+.container_checkbox .checkmark:after {
   left: 9px;
   top: 5px;
   width: 5px;
   height: 10px;
-  border: solid black;
+  border: solid white;
   border-width: 0 3px 3px 0;
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
@@ -81,10 +81,7 @@
 						<form enctype="multipart/form-data" method="post" action="{% url 'upload_read' %}"><br>
 							{% csrf_token %}
 				  			<input type="file" name="running_config"><br><br>
-							<input type="submit" value="Download configuration .csv format">
-						</form>
-					</div>
-				<label class="container_checkbox">Interface
+													<label class="container_checkbox">Interface
   						<input type="checkbox" checked="checked">
   						<span class="checkmark"></span>
 						</label>
@@ -100,6 +97,10 @@
   						<input type="checkbox" checked="checked">
   						<span class="checkmark"></span>
 						</label>
+							<input type="submit" value="Download configuration .csv format">
+						</form>
+					</div>
+
 			</div>
 	</section>
 </body>
