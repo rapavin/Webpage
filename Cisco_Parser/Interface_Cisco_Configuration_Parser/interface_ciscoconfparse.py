@@ -1,7 +1,9 @@
 from ciscoconfparse import CiscoConfParse
 import os
 import csv
+import pandas as pd
 from pathlib import Path
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 def main(file_name):
     file_to_parse = CiscoConfParse(file_name)
@@ -171,8 +173,8 @@ def main(file_name):
     
     #
     os.chdir(r"/home/ec2-user/webpage/Cisco_Parser/TEMP_FILE_STORAGE")
-    print(os.getcwd())
-    os.listdir(os.getcwd())
+    data = pd.read_csv('interface_testing.csv')
+    print(data)
     #with open("/home/ec2-user/webpage/Cisco_Parser/TEMP_FILE_STORAGE/interface_testing.csv", "r") as source:
         #reader = csv.reader(source)
     #print(reader)
