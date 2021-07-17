@@ -1,5 +1,4 @@
 from ciscoconfparse import CiscoConfParse
-import pandas
 import os
 import csv
 from pathlib import Path
@@ -171,8 +170,10 @@ def main(file_name):
             writer.writerow([key,items[0],items[1],items[2],items[3],items[4],items[5],items[6],items[7],items[8],items[9],items[10],items[11],items[12],items[13],items[14],items[15],items[16],items[17],items[18],items[19],items[20],items[21],items[22],items[23],items[24]])
     
     #print(os.getcwd())
-    reading_csv_pandas = pandas.read_csv('TEMP_FILE_STORAGE/interface_testing.csv')
-    print(reading_csv_pandas)
+    with open("/home/ec2-user/webpage/Cisco_Parser/TEMP_FILE_STORAGE/interface_testing.csv", "r") as source:
+        reader = csv.reader(source)
+    print(reader)
+    print("working")
     #print(reading_csv_pandas.head())
     
 if __name__ == "__main__":
