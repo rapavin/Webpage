@@ -81,24 +81,24 @@
 						<form enctype="multipart/form-data" method="post" action="{% url 'upload_read' %}"><br>
 							{% csrf_token %}
 				  			<input type="file" name="running_config"><br><br>
-				  			<input type="submit" value="Download configuration .csv format">
+						<label class="container_checkbox">Interface
+  						<input type="checkbox" checked="checked">
+  						<span class="checkmark"></span>
+						</label>
+						<label class="container_checkbox">Description
+  						<input type="checkbox" checked="checked">
+  						<span class="checkmark"></span>
+						</label>
+						<label class="container_checkbox">IP Address
+  						<input type="checkbox" checked="checked">
+  						<span class="checkmark"></span>
+						</label>
+						<label class="container_checkbox">Switchport Mode
+  						<input type="checkbox" checked="checked">
+  						<span class="checkmark"></span>
+						</label>
+							<input type="submit" value="Download configuration .csv format">
 						</form>
-					<label class="container_checkbox">Interface
-  						<input type="checkbox" checked="checked">
-  						<span class="checkmark"></span>
-					</label>
-					<label class="container_checkbox">Description
-  						<input type="checkbox" checked="checked">
-  						<span class="checkmark"></span>
-					</label>
-					<label class="container_checkbox">IP Address
-  						<input type="checkbox" checked="checked">
-  						<span class="checkmark"></span>
-					</label>
-					<label class="container_checkbox">Switchport Mode
-  						<input type="checkbox" checked="checked">
-  						<span class="checkmark"></span>
-					</label>	
 					</div>
 			</div>
 	</section>
