@@ -6,10 +6,10 @@ def cisco_service_parser(reading_running_conf_read_string):
 	global switch_data
 	'''Find the location directory of the templates. Currently located at "textfsm_templates"'''
 	switch_data = {}
-	textfsm_templates_list = os.listdir("/home/ec2-user/webpage/Cisco_Parser/Cisco_Configuration_Parser/textfsm_templates")
+	textfsm_templates_list = os.listdir("/home/ec2-user/cisco-app/Cisco_Configuration_Parser/textfsm_templates")
 
 	for each_textfsm_templates_list in textfsm_templates_list:
-		with open("/home/ec2-user/webpage/Cisco_Parser/Cisco_Configuration_Parser/textfsm_templates/"+each_textfsm_templates_list) as all_textfsm_templates:
+		with open("/home/ec2-user/cisco-app/Cisco_Configuration_Parser/textfsm_templates/"+each_textfsm_templates_list) as all_textfsm_templates:
 			regex_table_fsm_data = textfsm.TextFSM(all_textfsm_templates)
 			data = regex_table_fsm_data.ParseText(reading_running_conf_read_string)
 			try:
@@ -21,7 +21,7 @@ def cisco_service_parser(reading_running_conf_read_string):
 					switch_data[each_textfsm_templates_list[0:-4]] = data
 			except:
 				pass
-	with open('/home/ec2-user/webpage/Cisco_Parser/TEMP_FILE_STORAGE/interface_testing.csv', 'w+', newline='') as services_csv_file:
+	with open('/home/ec2-user/cisco-app/TEMP_FILE_STORAGE/interface_testing.csv', 'w+', newline='') as services_csv_file:
 		writer = csv.writer(services_csv_file)
 		writer.writerow(["HOSTNAME",switch_data['cisco_show_run_hostname'][0]])
 		writer.writerow(["SPANNING TREE MODE",switch_data['cisco_show_run_spanning_tree_mode'][0]])
@@ -65,13 +65,7 @@ def cisco_service_parser(reading_running_conf_read_string):
 				writer.writerow(["SERVICES",each_switch_data[0]])
 			else:
 				pass
-
-		if len(switch_data['cisco_show_run_snmp'])>1:
-			writer.writerow([""])
-			for each_switch_data in switch_data['cisco_show_run_snmp']:
-				writer.writerow(["SNMP",each_switch_data[0]])
-			else:
-				pass	
+	
 if __name__ == "__main__":
 	main()
 
