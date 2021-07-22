@@ -1,5 +1,4 @@
 from ciscoconfparse import CiscoConfParse
-import pandas
 import csv
 from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -68,7 +67,7 @@ def main(file_name):
 
         if any("logging" in each_interface_children_commands for each_interface_children_commands in interface_children_commands):
             logging_event_trunk_status_children = list(each_interface_children_commands for each_interface_children_commands in interface_children_commands if "logging" in each_interface_children_commands)
-            empty_dic[each_interface].append(str([each_logging_event_trunk_status_children for each_logging_event_trunk_status_children in logging_event_trunk_status_children]).replace("[","").replace("]","").replace("'","")[1:])
+            empty_dic[each_interface].append(str([each_logging_event_trunk_status_children for each_logging_event_trunk_status_children in logging_event_trunk_status_children]).replace("[","").replace("]","").replace("'",""))
         else:
             empty_dic[each_interface].append("N/A")
 
@@ -162,16 +161,13 @@ def main(file_name):
         else:
             empty_dic[each_interface].append("N/A")
 
-    with open('/home/ec2-user/webpage/Cisco_Parser/TEMP_FILE_STORAGE/interface_testing.csv', 'a', newline='') as file:
+    with open('/home/ec2-user/cisco-app/TEMP_FILE_STORAGE/interface_testing.csv', 'a', newline='') as file:
         writer = csv.writer(file)
         writer.writerow(["\n"])
         writer.writerow(["INTERFACE", "DESCRIPTION", "IP ADDRESS", "SWITCHPORT MODE", "SWITCHPORT ACCESS VLAN", "SWITCHPORT VOICE VLAN", "SWITCHPORT TRUNK NATIVE","SWITCHPORT TRUNK ALLOWED VLAN", "IP HELPER-ADDRESS", "SWITCHPORT NONEGOTIATE", "LOGGING", "UDLD PORT AGGRESSIVE", "IP DHCP SNOOPING", "SPANNING-TREE LINK TYPE","SWITCHPORT PORT-SECURITY", "DEVICE TRACKICKING", "SRR-QUEUE", "SPANNING-TREE PORTFAST", "SPANNING-TREE BPDUGUARD", "SPANNING-TREE GUARD ROOT", "SERVICE POLICY", "PIM MODE", "REDIRECTS", "UNREACHABLES", "ACCESS-GROUP", "SHUTDOWN"])
         for key, items in empty_dic.items():
             writer.writerow([key,items[0],items[1],items[2],items[3],items[4],items[5],items[6],items[7],items[8],items[9],items[10],items[11],items[12],items[13],items[14],items[15],items[16],items[17],items[18],items[19],items[20],items[21],items[22],items[23],items[24]])
-    
-    #reading_csv_pandas = pandas.read_csv("interface_testing.csv")
-    #print(reading_csv_pandas.head())
-    
+
 if __name__ == "__main__":
     main()
 
