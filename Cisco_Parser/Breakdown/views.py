@@ -19,11 +19,8 @@ def Home_Page(request):
 def Parser_Page(request):
     return render(request, 'Parser_Page.html')
 
-def Network_Page(request):
-    return render(request, 'Network_Page.html')
-
 def delete_file():
-    os.remove('/home/ec2-user/webpage/Cisco_Parser/TEMP_FILE_STORAGE/interface_testing.csv')
+    os.remove('/home/ec2-user/cisco-app/TEMP_FILE_STORAGE/interface_testing.csv')
 
 def convert_each_uploaded_file_readlines_to_string(list_variable):
     str1 = "" 
@@ -37,10 +34,7 @@ def upload_read(request):
     running_configuration_list = []
     try:
         f = request.FILES['running_config']
-        if "." in f.name[-4]:
-            hostname = f.name[0:-4]
-        elif "." in f.name[-5]:
-            hostname = f.name[0:-5]
+        hostname,extension = f.name.split(".")
         uploaded_file_readlines_list = request.FILES['running_config'].readlines()
         #print(uploaded_file_readlines_list)
         for each_uploaded_file_readlines in uploaded_file_readlines_list:
